@@ -3,7 +3,10 @@
 
 import os
 
-banco_dados = {}
+# Dicionário para armazenar os produtos do estoque 
+
+banco_dados = {} 
+
 
 
 # Função para excluir um produto do estoque
@@ -25,7 +28,7 @@ def atualizar_produto():
         return
     produto = input("Nome do produto a ser atualizado: ")
     banco_dados.pop(produto)
-    novo_nome = input(" Digite o novo produto: ")
+    novo_nome = input("Digite o novo produto: ")
     banco_dados[novo_nome] = {
         "preco": float(input("Digite o novo preço do produto: ")),
         "quantidade": int(input("Digite a nova quantidade em estoque: "))
@@ -37,7 +40,7 @@ def visualizar_estoque():
     if not banco_dados:
         print(" Estoque vazio.")
     else:
-        print("\n--- ESTOQUE ATUAL ---")
+        print("<----> ESTOQUE ATUAL <---->")
         for produto, dados in banco_dados.items():
             print(f"Produto: {produto}")
             print(f"Preço: R$ {dados['preco']}")

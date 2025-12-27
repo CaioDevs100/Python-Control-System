@@ -10,6 +10,6 @@ aprendizado de lógica de programação e boas práticas.
 - Remoção de produtos
 - Controle básico via terminal
 
-# 🛠️ Tecnologias utilizadas
+# Tecnologias utilizadas
 - Python 3
 
