@@ -1,7 +1,7 @@
 
 
-
-import os
+# Importa o módulo OS para operações do sistema operacional
+import os 
 
 # Dicionário para armazenar os produtos do estoque 
 
@@ -81,24 +81,24 @@ def atualizar_produto():
     visualizar_estoque()
 
     if not banco_dados:
-        print(" Estoque vazio.")
+        visualizar_estoque
         return
 
-    produto = input("Nome do produto a ser atualizado: ").strip()
+    produto = input("Nome do produto a ser atualizado: ")
 
     if produto not in banco_dados:
         print(" Produto não encontrado.")
         return
 
     # Validação do novo nome
-    novo_nome = input("Digite o novo nome do produto: ").strip()
+    novo_nome = input("Digite o novo nome do produto: ")
     if novo_nome == "":
         print(" O nome não pode ser vazio.")
         return
 
     # Validação do preço
     while True:
-        preco_input = input("Digite o novo preço do produto: ").strip()
+        preco_input = input("Digite o novo preço do produto: ")
         try:
             preco = float(preco_input)
             break
@@ -107,7 +107,7 @@ def atualizar_produto():
 
     # Validação da quantidade
     while True:
-        quantidade_input = input("Digite a nova quantidade em estoque: ").strip()
+        quantidade_input = input("Digite a nova quantidade em estoque: ")
         try:
             quantidade = int(quantidade_input)
             break
@@ -115,13 +115,14 @@ def atualizar_produto():
             print(" Digite um número inteiro válido para a quantidade.")
 
     # Atualiza o produto com segurança
-        banco_dados.pop(produto)
-    banco_dados[novo_nome] = {
-        "preco": preco,
-        "quantidade": quantidade
-    }
+    banco_dados[produto]["preco"] = preco
+    banco_dados[produto]["quantidade"] = quantidade
+    if novo_nome != produto:
+        banco_dados[novo_nome] = banco_dados.pop(produto)
+    
 
     print(" Produto atualizado com sucesso!")
+
 
 
 # Função para visualizar o estoque atual
